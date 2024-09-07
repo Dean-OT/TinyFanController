@@ -4,35 +4,35 @@
 typedef struct
 {
 	// Controller Gains
-	int KP;
-	int KI;
-	int KD;
+	float KP;
+	float KI;
+	float KD;
 	
 	//Time Constant for the LPF on the derivative
-	int tau;
+	float tau;
 	
 	//Setting limits on the outputs
-	int LimMax;
-	int LimMin;
+	float LimMax;
+	float LimMin;
 	
 	//clamping limits on the integrator
-	int IntLimMax;
-	int IntLimMin;
+	float IntLimMax;
+	float IntLimMin;
 	
 	//sampling time
-	int T;
+	float T;
 	
 	//Controller variables
-	int Integrator;
-	int Differentiator;
-	int PrevError;
-	int PrevMeasurement;
+	float Integrator;
+	float Differentiator;
+	float PrevError;
+	float PrevMeasurement;
 	
 	//Output
-	int Out;
+	float Out;
 } PIDController;
 
 void PIDController_Init(PIDController *pid);
-int PIDController_Update(PIDController *pid, int SetPoint, int Measurement);
+float PIDController_Update(PIDController *pid, float SetPoint, float Measurement);
 
 #endif

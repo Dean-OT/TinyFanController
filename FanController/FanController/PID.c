@@ -10,13 +10,13 @@ void PIDController_Init(PIDController *pid)
 	pid ->Out = 0.0f;
 }
 
-int PIDController_Update(PIDController *pid, int SetPoint, int Measurement)
+float PIDController_Update(PIDController *pid, float SetPoint, float Measurement)
 {
 	//Calculate the Error
-	int Error = SetPoint-Measurement;
+	float Error = SetPoint-Measurement;
 	
 	//Calculate the Proportional term
-	int Prop = pid ->KP * Error;
+	float Prop = pid ->KP * Error;
 	
 	//Calculate the Integral term
 	pid ->Integrator += 0.5f*pid ->KI * pid ->T * (Error+pid ->PrevError);
